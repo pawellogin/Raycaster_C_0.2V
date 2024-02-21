@@ -10,7 +10,12 @@
 			"math.h": "c",
 			"blocks.h": "c",
 			"stdio.h": "c",
-			"*.m": "c"
+			"*.m": "c",
+			"tile.h": "c",
+			"map.h": "c",
+			"mapconfig.h": "c",
+			"player.h": "c",
+			"minimap.h": "c"
 		}
 	}
 }
