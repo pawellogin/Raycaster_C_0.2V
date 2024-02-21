@@ -1,11 +1,17 @@
-#pragma once
+#ifndef MAP_H
+#define MAP_H
+
 #include "Tile.h"
+#include "raylib.h"
 
 typedef struct Map{
-    int MAP_HEIGHT;
-    int MAP_WIDTH;
+    int height;
+    int width;
     Tile** mapGrid;
 }Map;
  
-    void mapInitialize(Map map, int mapHeight, int mapWidth);
-    TileName getTileType(int width, int height);
+    Map* mapCreateEmptyWithBarriers();
+    Tile mapGetTile(Map map, Vector2 position);
+    bool mapIsTilePassThrought(Map map, Vector2 position);
+
+#endif

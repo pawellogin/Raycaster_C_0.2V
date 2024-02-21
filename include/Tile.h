@@ -1,11 +1,14 @@
-#pragma once 
+#ifndef TILE_H
+#define TILE_H
+
 #include "raylib.h"
 
 typedef enum TileName{
     EMPTY,
     STONE,
     GLASS,
-    BARRIER
+    BARRIER,
+    ERROR
 }TileName;
 
 typedef struct Tile {
@@ -14,3 +17,9 @@ typedef struct Tile {
     float height;
     bool isPassThrought;
 }Tile;
+
+Tile createEmptyTile();
+Tile createBarrierTile();
+Tile createErrorTile();
+
+#endif
