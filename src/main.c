@@ -1,4 +1,7 @@
 #include "raylib.h"
+#include "./include/Map.h"
+#include "./include/Player.h"
+#include "./include/MiniMap.h"
 
 int main(){
 
@@ -7,14 +10,24 @@ int main(){
 
     InitWindow(screenWidth, screenHeight, "raycaster");
 
-    SetTargetFPS(60);   
+    SetTargetFPS(60);  
 
+    Map* map = mapCreateEmptyWithBarriers();
+    Player player = playerCreate();
+         
     while(!WindowShouldClose()){
+
+
+
+        playerMove(&player, *map);
+        playerRotate(&player);
 
 
         BeginDrawing();
 
+            ClearBackground(BLACK);
 
+            miniMapDrawMiniMap(player, *map);
         EndDrawing();
 
 
