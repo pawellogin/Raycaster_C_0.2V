@@ -23,9 +23,9 @@ Map* mapCreateEmptyWithBarriers(){
             else isTileAtTheBorder = false;
 
             if(isTileAtTheBorder){
-                newMap->mapGrid[i][j] = TileCreateBarrierTile();
+                newMap->mapGrid[i][j] = tileCreateBarrierTile();
             }else{
-                newMap->mapGrid[i][j] = TileCreateEmptyTile();
+                newMap->mapGrid[i][j] = tileCreateEmptyTile();
             }
         }
     }
@@ -45,7 +45,7 @@ Tile mapGetTile(Map map, Vector2 position) {
     if (x >= 0 && x < map.width && y >= 0 && y < map.height) {
         return map.mapGrid[x][y]; 
     } else {
-        return TileCreateErrorTile();
+        return tileCreateErrorTile();
     }
 }
 
@@ -55,7 +55,7 @@ bool mapIsTilePassThrought(Map map, Vector2 position){
         position.y 
     };
 
-    Tile tile = TileCreateErrorTile();
+    Tile tile = tileCreateErrorTile();
 
     int x = (int)gridPos.x;
     int y = (int)gridPos.y;
@@ -88,14 +88,17 @@ void mapCreateTestRoom(Map* map){
     for (int i = startRow; i < startRow + 5; i++) {
         for (int j = startCol; j < startCol + 5; j++) {
             if (i == startRow || i == startRow + 4 || j == startCol || j == startCol + 4) {
-                map->mapGrid[i][j] = TileCreateStoneTile();
+                map->mapGrid[i][j] = tileCreateStoneTile();
             } else {
-                map->mapGrid[i][j] = TileCreateEmptyTile();
+                map->mapGrid[i][j] = tileCreateEmptyTile();
             }
         }
     }
 
-    map->mapGrid[startRow + 2][startCol] = TileCreateEmptyTile();
+    map->mapGrid[startRow + 2][startCol] = tileCreateEmptyTile();
+    map->mapGrid[startRow][startCol + 2] = tileCreateGlassTile();
+    map->mapGrid[startRow + 4][startCol + 2] = tileCreateGlassTile();
+    
 
     
 }

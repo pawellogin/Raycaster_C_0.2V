@@ -33,14 +33,13 @@ TileToDraw* raycasterCastRay(Player player, Map map, size_t* tileArraySize){
         raylength.y = ((float)(mapPositionCheck.y + 1) - player.position.y) * rayUnitStepSize.y;
     }
 
-    bool tileFound = false;
     float maxDistance = 20.0f;
     float distance = 0.0f;
     Tile tileToCheck;
 
     int axis = 0;
 
-    while(!tileFound && distance < maxDistance){
+    while((distance < maxDistance) && tileArrayId < TILE_BUFFER_SIZE - 1 ){
 
 
         if(raylength.x < raylength.y){
@@ -58,7 +57,7 @@ TileToDraw* raycasterCastRay(Player player, Map map, size_t* tileArraySize){
 
         tileToCheck = mapGetTile(map, mapPositionCheck);
 
-        if(tileToCheck.isTransparent && tileToCheck.name != EMPTY){
+        if( tileToCheck.name != EMPTY){
             tileArray[tileArrayId].name = tileToCheck.name;
             tileArray[tileArrayId].color = tileToCheck.color;
             tileArray[tileArrayId].height = tileToCheck.height;
@@ -72,24 +71,7 @@ TileToDraw* raycasterCastRay(Player player, Map map, size_t* tileArraySize){
             tileArrayId++;  
 
             *tileArraySize = tileArrayId; 
-        }else if(!tileToCheck.isTransparent && tileToCheck.name != EMPTY){
-            tileFound = true;
-            
-            tileArray[tileArrayId].name = tileToCheck.name;
-            tileArray[tileArrayId].color = tileToCheck.color;
-            tileArray[tileArrayId].height = tileToCheck.height;
-            tileArray[tileArrayId].isTransparent = tileToCheck.isTransparent;
-            tileArray[tileArrayId].rayLength = distance;
-            tileArray[tileArrayId].side = (Side)axis;
-            tileArray[tileArrayId].cords.x = (int)(mapPositionCheck.x);
-            tileArray[tileArrayId].cords.y = (int)(mapPositionCheck.y);
-
-
-            tileArrayId++;            
-
-            *tileArraySize = tileArrayId;
-            return tileArray;
         }
     } 
-     return NULL;
+     return tileArray;
 }

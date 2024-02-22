@@ -26,9 +26,10 @@ Tile createTile(
     bool isWalkThrought,
     bool isTransparent
     );
-Tile TileCreateEmptyTile();
-Tile TileCreateBarrierTile();
-Tile TileCreateErrorTile();
-Tile TileCreateStoneTile();
+Tile tileCreateEmptyTile();
+Tile tileCreateBarrierTile();
+Tile tileCreateErrorTile();
+Tile tileCreateStoneTile();
+Tile tileCreateGlassTile();
 
 #endif

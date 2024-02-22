@@ -16,7 +16,7 @@ Tile createTile(
     };
 };
 
-Tile TileCreateEmptyTile(){
+Tile tileCreateEmptyTile(){
     return createTile(
         EMPTY,
         (Color){0,0,0,0},
@@ -26,7 +26,7 @@ Tile TileCreateEmptyTile(){
     );
 }
 
-Tile TileCreateErrorTile(){
+Tile tileCreateErrorTile(){
     return createTile(
       ERROR,
       (Color){255,0,220,0},
@@ -36,7 +36,7 @@ Tile TileCreateErrorTile(){
     );
 }
 
-Tile TileCreateBarrierTile(){
+Tile tileCreateBarrierTile(){
     return createTile(
         BARRIER,
         (Color){0,0,0,0},
@@ -46,13 +46,23 @@ Tile TileCreateBarrierTile(){
     );
 }
 
-Tile TileCreateStoneTile(){
+Tile tileCreateStoneTile(){
     return createTile(
         STONE,
         GRAY,
         1.0f,
         false,
         false
+    );
+}
+
+Tile tileCreateGlassTile(){
+    return createTile(
+        GLASS,
+        (Color){20,60,220,60},
+        1.2f,
+        false,
+        true
     );
 }
 
