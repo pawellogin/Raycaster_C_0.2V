@@ -1,5 +1,17 @@
 #include "./include/MiniMap.h"
 #include "./config/miniMapConfig.h"
+#include "./include/Raycaster.h"
+
+Vector2 miniMapGiveConvertetCords(Vector2 cords){
+    cords.x = cords.x * MINIMAP_SCALE;
+    cords.x += MINIMAP_OFFSET_X;
+    
+    cords.y = cords.y * MINIMAP_SCALE;
+    cords.y += MINIMAP_OFFSET_Y;
+
+    return cords;
+}
+
 
 void miniMapDrawMiniMap(Player player,Map map){
 
@@ -23,6 +35,8 @@ void miniMapDrawMiniMap(Player player,Map map){
     player.position.x += MINIMAP_OFFSET_X;
     
     player.position.y = player.position.y * MINIMAP_SCALE;
+    player.position.y += MINIMAP_OFFSET_Y;
+
     
 
     DrawCircleV(player.position,0.3*MINIMAP_SCALE,RED);
@@ -31,4 +45,24 @@ void miniMapDrawMiniMap(Player player,Map map){
 
     DrawLineEx(player.position,lineEnd,2,GREEN);
 
+}
+
+void miniMapRaycastSingleRay(Player player, Map map){
+    size_t arraySize = 0;
+    TileToDraw* tileArray = NULL;
+    tileArray = raycasterCastRay(player,map, &arraySize);
+
+
+    if(tileArray != NULL){
+        Vector2 endCords = {
+            player.position.x + player.direction.x * tileArray[0].rayLength,
+            player.position.y + player.direction.y * tileArray[0].rayLength,
+        };
+
+        endCords = miniMapGiveConvertetCords(endCords);
+
+        player.position = miniMapGiveConvertetCords(player.position);
+        DrawLineV(player.position,endCords,RED);
+        free(tileArray);
+    }
 }

@@ -8,7 +8,8 @@ Player playerCreate(){
         .direction.x = 0,
         .direction.x = 0,
         .angle = 60 * DEG2RAD,
-        .movementSpeed = PLAYER_MOVEMENT_SPEED
+        .movementSpeed = PLAYER_MOVEMENT_SPEED,
+        .FOV = PLAYER_FOV
     };
 }
 

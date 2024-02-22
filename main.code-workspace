@@ -15,7 +15,11 @@
 			"map.h": "c",
 			"mapconfig.h": "c",
 			"player.h": "c",
-			"minimap.h": "c"
+			"minimap.h": "c",
+			"debug.h": "c",
+			"stdlib.h": "c",
+			"renderer.h": "c",
+			"raycaster.h": "c"
 		}
 	}
 }

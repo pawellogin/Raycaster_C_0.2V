@@ -2,39 +2,49 @@
 #include "./include/Map.h"
 #include "./include/Player.h"
 #include "./include/MiniMap.h"
+#include "./include/Renderer.h"
+#include "./config/rendererConfig.h"
+#include "./config/screenConfig.h"
 
 int main(){
 
-    const int screenWidth = 1600;
-    const int screenHeight = 900;
-
+    const int screenWidth = SCREEN_WIDTH;
+    const int screenHeight = SCREEN_HEIGHT;
     InitWindow(screenWidth, screenHeight, "raycaster");
 
-    SetTargetFPS(60);  
+    const int targetFPS = TARGET_FPS;
+    SetTargetFPS(targetFPS);  
 
     Map* map = mapCreateEmptyWithBarriers();
     Player player = playerCreate();
          
     while(!WindowShouldClose()){
 
-
+        printf("Map grid is to small to create a test room!");
+        TraceLog(LOG_ERROR,"ERROR!!");
 
         playerMove(&player, *map);
         playerRotate(&player);
-
+        mapCreateTestRoom(map);
 
         BeginDrawing();
 
             ClearBackground(BLACK);
-
+            rendererDrawCeling(CELING_COLOR);
+            rendererDrawFloor(FLOOR_COLOR);
+            rendererDrawWallsSolidColor(player, *map);
+            miniMapRaycastSingleRay(player,*map);
             miniMapDrawMiniMap(player, *map);
+            miniMapRaycastSingleRay(player, *map);
+
         EndDrawing();
 
 
     }
     CloseWindow();
 
-    return 0;
+    mapFreeMapGrid(map);
+    free(map);
 
     return 0;
 }

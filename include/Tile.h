@@ -15,11 +15,20 @@ typedef struct Tile {
     TileName name;
     Color color;
     float height;
-    bool isPassThrought;
+    bool isWalkThrought;
+    bool isTransparent;
 }Tile;
 
-Tile createEmptyTile();
-Tile createBarrierTile();
-Tile createErrorTile();
+Tile createTile(
+    TileName name,
+    Color color,
+    float height,
+    bool isWalkThrought,
+    bool isTransparent
+    );
+Tile TileCreateEmptyTile();
+Tile TileCreateBarrierTile();
+Tile TileCreateErrorTile();
+Tile TileCreateStoneTile();
 
 #endif

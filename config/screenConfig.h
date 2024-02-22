@@ -1,0 +1,9 @@
+#ifndef SCREENCONFIG_H
+#define SCREENCONFIG_H
+
+#define SCREEN_HEIGHT 900
+#define SCREEN_WIDTH 1600
+#define TARGET_FPS 60
+
+
+#endif

@@ -11,6 +11,8 @@ typedef struct Map{
 }Map;
  
     Map* mapCreateEmptyWithBarriers();
+    void mapCreateTestRoom(Map* map);
+    void mapFreeMapGrid(Map* map);
     Tile mapGetTile(Map map, Vector2 position);
     bool mapIsTilePassThrought(Map map, Vector2 position);
 
