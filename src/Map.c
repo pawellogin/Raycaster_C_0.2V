@@ -79,7 +79,6 @@ void mapFreeMapGrid(Map* map) {
 
 void mapCreateTestRoom(Map* map){
     if(map->height < 8 && map->width < 8){
-        printf("Map grid is to small to create a test room!");
         return;
     }
 

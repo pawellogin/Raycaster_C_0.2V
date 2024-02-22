@@ -20,9 +20,6 @@ int main(){
          
     while(!WindowShouldClose()){
 
-        printf("Map grid is to small to create a test room!");
-        TraceLog(LOG_ERROR,"ERROR!!");
-
         playerMove(&player, *map);
         playerRotate(&player);
         mapCreateTestRoom(map);
