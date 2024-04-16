@@ -94,7 +94,7 @@ void rendererDrawWallsSolidColor(Player player,Map map){
 
 }
 
-void rendererDrawCeling(Color color){
+void rendererDrawCeiling(Color color){
     DrawRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT/2, color);
 }
 

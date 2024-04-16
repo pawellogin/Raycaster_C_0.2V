@@ -10,6 +10,11 @@
 	},
 	"files.associations": {
 		"raylib.h": "c",
-		"tile.h": "c"
+		"tile.h": "c",
+		"renderer.h": "c",
+		"screenconfig.h": "c",
+		"player.h": "c",
+		"tiletodraw.h": "c",
+		"rendererconfig.h": "c"
 	}
 }

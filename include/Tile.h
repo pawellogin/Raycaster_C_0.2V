@@ -31,5 +31,6 @@ Tile tileCreateBarrierTile();
 Tile tileCreateErrorTile();
 Tile tileCreateStoneTile();
 Tile tileCreateGlassTile();
+const char* tileNameToString(TileName tileName);
 
 #endif

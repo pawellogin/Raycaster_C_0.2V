@@ -5,6 +5,7 @@
 #include "./include/Renderer.h"
 #include "./config/rendererConfig.h"
 #include "./config/screenConfig.h"
+#include "./include/Debug.h"
 
 int main(){
 
@@ -17,8 +18,12 @@ int main(){
 
     Map* map = mapCreateEmptyWithBarriers();
     Player player = playerCreate();
+
+    bool showDebug = false;
+    bool debugNeverOnceShown = true;
          
     while(!WindowShouldClose()){
+
 
         playerMove(&player, *map);
         playerRotate(&player);
@@ -27,13 +32,22 @@ int main(){
         BeginDrawing();
 
             ClearBackground(BLACK);
-            rendererDrawCeling(CELING_COLOR);
+            rendererDrawCeiling(CEILING_COLOR);
             rendererDrawFloor(FLOOR_COLOR);
             rendererDrawWallsSolidColor(player, *map);
-            miniMapRaycastSingleRay(player,*map);
-            miniMapDrawMiniMap(player, *map);
-            miniMapRaycastSingleRay(player, *map);
 
+            if(debugNeverOnceShown) debugShowHintInfo();
+
+            if(IsKeyPressed(KEY_F3)){
+                showDebug = !showDebug;
+                debugNeverOnceShown = false;
+            }
+
+            if(showDebug){    
+                debugShowMinMap(player, *map);
+                debugShowPlayerInfo(player, *map);
+            }
+            
         EndDrawing();
 
 

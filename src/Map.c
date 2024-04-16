@@ -102,6 +102,7 @@ void mapCreateTestRoom(Map* map){
     //walls beside rear door
     map->mapGrid[startRow + 1][startCol + 4].height= 1.3f;
     map->mapGrid[startRow + 3][startCol + 4].height= 0.7f;
+    map->mapGrid[startRow + 3][startCol + 4].color = (Color){255,217,102,255};
 
     //glass beside front door
     map->mapGrid[startRow + 3][startCol] = tileCreateGlassTile();

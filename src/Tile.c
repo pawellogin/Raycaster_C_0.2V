@@ -66,3 +66,20 @@ Tile tileCreateGlassTile(){
     );
 }
 
+const char* tileNameToString(TileName tileName) {
+    switch (tileName) {
+        case EMPTY:
+            return "Empty";
+        case STONE:
+            return "Stone";
+        case GLASS:
+            return "Glass";
+        case BARRIER:
+            return "Barrier";
+        case ERROR:
+            return "Error";
+        default:
+            return "Unknown";
+    }
+}
+

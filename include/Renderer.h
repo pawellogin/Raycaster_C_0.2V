@@ -10,7 +10,7 @@
 Color rendererDarkenColor(Color color, float shadowPower);
 Color rendererLimitDarknessTo(Color color, Color limit);
 void rendererDrawWallsSolidColor(Player player,Map map);
-void rendererDrawCeling(Color color);
+void rendererDrawCeiling(Color color);
 void rendererDrawFloor(Color color);
 
 

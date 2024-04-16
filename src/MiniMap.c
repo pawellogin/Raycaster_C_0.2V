@@ -2,7 +2,7 @@
 #include "./config/miniMapConfig.h"
 #include "./include/Raycaster.h"
 
-Vector2 miniMapGiveConvertetCords(Vector2 cords){
+Vector2 miniMapGiveConvertedCords(Vector2 cords){
     cords.x = cords.x * MINIMAP_SCALE;
     cords.x += MINIMAP_OFFSET_X;
     
@@ -59,9 +59,9 @@ void miniMapRaycastSingleRay(Player player, Map map){
             player.position.y + player.direction.y * tileArray[0].rayLength,
         };
 
-        endCords = miniMapGiveConvertetCords(endCords);
+        endCords = miniMapGiveConvertedCords(endCords);
 
-        player.position = miniMapGiveConvertetCords(player.position);
+        player.position = miniMapGiveConvertedCords(player.position);
         DrawLineV(player.position,endCords,RED);
         free(tileArray);
     }

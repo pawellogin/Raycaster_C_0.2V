@@ -2,7 +2,7 @@
 #define RENDERERCONFIG_H
 
 #define SHADOW_POWER (1.0f/100.0f)
-#define CELING_COLOR SKYBLUE
+#define CEILING_COLOR SKYBLUE
 #define FLOOR_COLOR BEIGE
 
 #endif
