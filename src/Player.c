@@ -3,11 +3,11 @@
 
 Player playerCreate(){
     return(Player){
-        .position.x = 3.7f,
-        .position.y = 2.0f,
+        .position.x = 15.5f,
+        .position.y = 7.0f,
         .direction.x = 0,
         .direction.x = 0,
-        .angle = 60 * DEG2RAD,
+        .angle = 90 * DEG2RAD,
         .movementSpeed = PLAYER_MOVEMENT_SPEED,
         .FOV = PLAYER_FOV
     };

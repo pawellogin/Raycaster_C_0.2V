@@ -95,9 +95,24 @@ void mapCreateTestRoom(Map* map){
         }
     }
 
+    //"doors"
     map->mapGrid[startRow + 2][startCol] = tileCreateEmptyTile();
+    map->mapGrid[startRow + 2][startCol + 4] = tileCreateEmptyTile();
+
+    //walls beside rear door
+    map->mapGrid[startRow + 1][startCol + 4].height= 1.3f;
+    map->mapGrid[startRow + 3][startCol + 4].height= 0.7f;
+
+    //glass beside front door
+    map->mapGrid[startRow + 3][startCol] = tileCreateGlassTile();
+    map->mapGrid[startRow + 1][startCol] = tileCreateGlassTile();
+    map->mapGrid[startRow + 1][startCol].height = 0.6f;
+
+    // glass on the side
     map->mapGrid[startRow][startCol + 2] = tileCreateGlassTile();
     map->mapGrid[startRow + 4][startCol + 2] = tileCreateGlassTile();
+    map->mapGrid[startRow + 4][startCol + 2].color = (Color){20,220,220,110};
+
     
 
     
